@@ -1,17 +1,14 @@
-# English-audio-to-Hindi-text-using-Pretrained-Model
-
-```markdown
 # English Audio to Hindi Text Using Pre-trained Models and Transformers
 
 This project involves converting English audio into Hindi text using pre-trained models and Transformer architectures. It leverages state-of-the-art machine learning techniques to perform automatic speech recognition (ASR) and machine translation.
 
 ## Project Overview
+This repository contains two Flask applications:
+1. **app.py**: Converts English audio to Hindi text.
+2. **app1.py**: Converts English text to Hindi text.
 
-The primary goal of this project is to transcribe English audio and then translate the transcribed text into Hindi. This is achieved using pre-trained models for both ASR and translation tasks. The notebook demonstrates how to:
+Both apps utilize machine learning models to handle the conversion processes. The apps serve as a simple web interface for the respective tasks.
 
-1. Load and preprocess English audio files.
-2. Perform automatic speech recognition (ASR) to convert audio to text.
-3. Translate the transcribed English text into Hindi using pre-trained Transformer models.
 
 ## Installation
 
@@ -21,13 +18,9 @@ To run the notebook, you'll need to have Python installed along with the require
 - Jupyter Notebook
 - Hugging Face Transformers
 - TensorFlow
-- Libraries for audio processing (e.g., `librosa` or `pydub`)
+- Speech Recognition
 
 You can install the dependencies using `pip`:
-
-```bash
-pip install transformers torch librosa
-```
 
 Or using a requirements file:
 
@@ -40,7 +33,7 @@ pip install -r requirements.txt
 The notebook is structured into the following key steps:
 
 1. **Loading and Preprocessing Audio:**
-   - Audio files are loaded using libraries like `librosa` or `pydub`.
+   - Audio files are loaded using libraries like `librosa` or `pydub` or `speech recognition`.
    - Preprocessing involves converting the audio into the correct sample rate and format for the ASR model.
 
 2. **Automatic Speech Recognition (ASR):**
@@ -65,12 +58,7 @@ To use the notebook:
 
 1. **Clone the Repository**: 
    
-   Clone the repository to your local machine and navigate to the directory:
-
-   ```bash
-   git clone <repository-url>
-   cd <repository-directory>
-   ```
+   Clone the repository to your local machine and navigate to the directory
 
 2. **Run the Jupyter Notebook**:
 
@@ -88,10 +76,85 @@ To use the notebook:
    - **Automatic Speech Recognition (ASR)**: Use a pre-trained ASR model to transcribe the English audio into text.
    - **Text Translation**: Use a Transformer-based model to translate the English text into Hindi.
    - **Evaluation**: Evaluate the quality of the transcription and translation.
+   - **Saving the Model**: After everything save the model in `tf_model` folder
 
 ## Data
 
-The notebook requires English audio files as input. Ensure that your audio files are in a supported format (e.g., `.wav`, `.mp3`). The quality of the transcription and translation depends on the clarity of the audio and the performance of the pre-trained models.
+The notebook requires English audio files as input. Ensure that your audio files are in a supported format (e.g., `.wav`). The quality of the transcription and translation depends on the clarity of the audio and the performance of the pre-trained models.
+
+## **1. app.py - English Audio to Hindi Text Conversion**
+
+### **Overview**
+`app.py` is a Flask web application that receives an audio file (in `.wav` format) from the user, then transcribes the audio to English text using the SpeechRecognition library. The English text is then translated into Hindi using a custom nlp model.
+
+### **Features**
+- Upload audio files in `.wav` format.
+- Transcribes the audio to English text.
+- Translates the English text to Hindi using a pre-trained translation model.
+- Displays the translated Hindi text on the front-end interface.
+
+### **Dependencies**
+- **Flask**: Web framework for Python.
+- **SpeechRecognition**: For audio-to-text conversion.
+- **transformers**: For translation using pre-trained models.
+- **tensorflow**: Required for deep learning models (such as Hugging Face's transformer models).
+
+
+### **Usage**
+1. Open the app in your browser.
+2. Upload an `.wav` audio file using the provided file input.
+3. The audio will be converted to text, and then the English text will be translated into Hindi.
+4. The result will be displayed on the webpage.
+
+---
+
+## **2. app1.py - English Text to Hindi Text Conversion**
+
+### **Overview**
+`app1.py` is a Flask web application that takes English text input from the user and converts it into Hindi. This app utilizes a custom NLP model for translation.
+
+### **Features**
+- Enter English text into a text box.
+- Translates the input English text to Hindi.
+- Displays the translated Hindi text on the front-end interface.
+
+### **Dependencies**
+- **Flask**: Web framework for Python.
+- **transformers**: For using pre-trained translation models.
+- **tensorflow**: Required for deep learning models (such as Hugging Face's transformer models).
+
+### **Usage**
+1. Open the app in your browser.
+2. Enter English text in the provided text box.
+3. Click on the convert button.
+4. The English text will be converted to Hindi and displayed on the webpage.
+
+
+## **Screenshots**
+Below are some screenshots illustrating the functionality of both apps.
+
+### **app.py - English Audio to Hindi Text Conversion**
+
+#### 1. **Home Page (File Upload Interface)**:
+![Home Page - Upload Audio](https://github.com/Davityak03/English-audio-to-Hindi-text-using-Pretrained-Model/blob/main/images/Screenshot%20(1208).png)
+
+#### 2. **After Audio is Processed (Translated Text Display)**:
+![Processed Audio](https://github.com/Davityak03/English-audio-to-Hindi-text-using-Pretrained-Model/blob/main/images/Screenshot%20(1210).png)
+
+---
+
+### **app1.py - English Text to Hindi Text Conversion**
+
+#### 1. **Home Page (Text Input Interface)**:
+![Home Page - Text Input](https://github.com/Davityak03/English-audio-to-Hindi-text-using-Pretrained-Model/blob/main/images/Screenshot%20(1211).png)
+
+#### 2. **After Text is Translated (Hindi Text Display)**:
+![Translated Text](https://github.com/Davityak03/English-audio-to-Hindi-text-using-Pretrained-Model/blob/main/images/Screenshot%20(1212).png)
+
+---
+
+## **Conclusion**
+These Flask apps provide a simple, user-friendly interface for converting English audio to Hindi text and English text to Hindi text. They leverage machine learning models for speech recognition and language translation to facilitate seamless conversions.
 
 ## References
 
